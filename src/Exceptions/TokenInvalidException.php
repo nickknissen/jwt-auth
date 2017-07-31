@@ -13,5 +13,8 @@ namespace Tymon\JWTAuth\Exceptions;
 
 class TokenInvalidException extends JWTException
 {
-    //
+    public function render($request)
+    {
+        return response()->json(['token_invalid'], $this->getStatusCode());
+    }
 }

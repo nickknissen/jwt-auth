@@ -13,5 +13,8 @@ namespace Tymon\JWTAuth\Exceptions;
 
 class TokenExpiredException extends JWTException
 {
-    //
+    public function render($request)
+    {
+        return response()->json(['token_expired'], $this->getStatusCode());
+    }
 }
